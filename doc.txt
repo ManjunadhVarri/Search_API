@@ -1,0 +1,191 @@
+Video Search API Documentation
+
+> Overview :
+
+    The Video Search API allows users to search for videos based on their title, tags, and descriptions. 
+    The video data is stored in a JSON file and loaded into memory when the application starts. 
+    This API supports querying videos by title, description, and tags.
+
+> Base URL:
+    http://localhost:5000
+
+
+> Endpoints:
+
+1. Search Videos
+    Endpoint: GET /search
+
+> Description: Retrieves a list of videos that match the search criteria based on title, description, and tags.
+
+> Query Parameters
+
+_____________________________________________________________________________________________________________________________  
+|   Parameter	        Type	            Description	                                                            Required |
+-----------------------------------------------------------------------------------------------------------------------------
+|   title	            string	            The title or part of the title of the video to search for.	                No   |
+-----------------------------------------------------------------------------------------------------------------------------
+|   description	        string	            The description or part of the description of the video to search for.	    No   |
+-----------------------------------------------------------------------------------------------------------------------------
+|   tags	            list	            A list of tags to search for in the video's genre IDs.	                    No   |
+______________________________________________________________________________________________________________________________
+
+
+>  Why are these parameters marked as "No" for required?
+
+    Making the query parameters optional enhances the usability and flexibility of the API. It allows users to search using any combination of title, description, 
+    and tags without requiring them to provide all criteria. This design approach makes the API more adaptable to different search scenarios and user needs.
+
+
+> Request Example
+
+  * To search for videos with "Godzilla" in the title:         GET /search?title=Godzilla
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+****Response:****  
+[
+  {
+    "adult": false,
+    "backdrop_path": "/j3Z3XktmWB1VhsS8iXNcrR86PXi.jpg",
+    "genre_ids": [
+      878,
+      28,
+      12
+    ],
+    "id": 823464,
+    "original_language": "en",
+    "original_title": "Godzilla x Kong: The New Empire",
+    "overview": "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence \u2013 and our own.",
+    "popularity": 7832.06,
+    "poster_path": "/v4uvGFAkKuYfyKLGZnYj6l47ERQ.jpg",
+    "release_date": "2024-03-27",
+    "title": "Godzilla x Kong: The New Empire",
+    "video": false,
+    "vote_average": 7.249,
+    "vote_count": 1920
+  },
+  {
+    "adult": false,
+    "backdrop_path": "/fY3lD0jM5AoHJMunjGWqJ0hRteI.jpg",
+    "genre_ids": [
+      878,
+      27,
+      28
+    ],
+    "id": 940721,
+    "original_language": "ja",
+    "original_title": "\u30b4\u30b8\u30e9-1.0",
+    "overview": "Postwar Japan is at its lowest point when a new crisis emerges in the form of a giant monster, baptized in the horrific power of the atomic bomb.",
+    "popularity": 1492.159,
+    "poster_path": "/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg",
+    "release_date": "2023-11-03",
+    "title": "Godzilla Minus One",
+    "video": false,
+    "vote_average": 7.668,
+    "vote_count": 1105
+  }
+]
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+  * To search for videos with "explosive" in the description:  GET /search?description=explosive
+
+  * To search for videos with the tags "878" and "28":         GET /search?genre_ids=878&genre_ids=28
+
+  * To search for videos with all of them combined             GET /search?title=Godzilla&description=showdown&genre_ids=878&genre_ids=28
+
+  * To get all viedoes                                         GET /search
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+****Response:****  
+
+The response is a JSON array of video objects that match the search criteria.
+
+[
+    {
+        "adult": false,
+        "backdrop_path": "/j3Z3XktmWB1VhsS8iXNcrR86PXi.jpg",
+        "genre_ids": [878, 28, 12],
+        "id": 823464,
+        "original_language": "en",
+        "original_title": "Godzilla x Kong: The New Empire",
+        "overview": "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.",
+        "popularity": 7832.06,
+        "poster_path": "/v4uvGFAkKuYfyKLGZnYj6l47ERQ.jpg",
+        "release_date": "2024-03-27",
+        "title": "Godzilla x Kong: The New Empire",
+        "video": false,
+        "vote_average": 7.249,
+        "vote_count": 1920
+    }
+]
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Notes: 
+
+> Search Logic: The search functionality is case-insensitive. The title and description parameters search for partial matches, 
+                while the tags parameter matches any of the provided tags in the genre IDs of the videos.
+
+> Performance: This implementation loads all video data into memory at startup, which is efficient for small datasets 
+                but may require optimization for larger datasets or production environments.
+
+
+> Error Handling :
+
+        The API returns standard HTTP status codes to indicate the success or failure of a request.
+
+> Common Status Codes :
+
+        200 OK: The request was successful, and the response contains the requested data.
+        400 Bad Request: The request could not be understood or was missing required parameters.
+        500 Internal Server Error: An error occurred on the server.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+****  Instructions for Running the API  ****
+
+
+Before going to next step make sure that you had installed python in your local device.
+
+1. Set up the project environment:
+
+    > Create a virtual environment:   "  python -m venv venv "
+
+    > Activate the Virtual Environment : "  venv\Scripts\activate  "
+
+
+    > Install Flask :   
+        Use pip to install the dependencies listed in requirements.txt:   "  pip install -r requirements.txt  "
+
+
+2.  Run the Flask application:  python application.py
+
+
+3. Access the API:
+        Open a web browser or use a tool like Postman to send requests to http://localhost:5000/search with the appropriate query parameters.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+> Conclusion
+
+This documentation provides a detailed overview of the Video Search API, including endpoint details, request parameters, response format, 
+and usage examples. By following this guide, users can effectively query the video dataset based on their search criteria.
+
+
+ 
+
+
+
+
+
+
