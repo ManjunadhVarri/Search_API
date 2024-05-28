@@ -28,7 +28,7 @@ http://localhost:5000/
 
 ## Project Structure
 
-```
+``` kotlin
 My_Flask_app/
 ├── application.py
 ├── data/
@@ -135,7 +135,7 @@ option_settings:
 > **WSGIPath:** This setting points Elastic Beanstalk to the entry point of your Flask application, ensuring it runs correctly in the deployed environment.
 
 Ensure the project structure is as follows:
-```
+``` kotlin
 My_Flask_app/
 ├── application.py
 ├── data/
