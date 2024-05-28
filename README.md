@@ -26,6 +26,7 @@ http://localhost:5000/
 
 **Note:** Making the query parameters optional enhances the usability and flexibility of the API. It allows users to search using any combination of title, description, and tags without requiring them to provide all criteria. This design approach makes the API more adaptable to different search scenarios and user needs.
 
+
 ## Project Structure
 
 ``` kotlin
@@ -35,6 +36,31 @@ My_Flask_app/
 │   └── DataSet.json
 ├── requirements.txt
 ```
+
+# Why Flask App for This API?
+
+The decision to use Flask for developing this API was based on several factors, including simplicity, flexibility, and scalability. Here's why Flask was chosen for this project:
+
+1. **Lightweight and Minimalistic:**
+   - Flask is a lightweight micro-framework for Python, making it an ideal choice for building simple and minimalistic APIs. It provides just what is needed to get the job done without unnecessary bloat.
+
+2. **Easy to Learn and Use:**
+   - Flask follows a simple and intuitive design, making it easy for developers to learn and use. Its minimalistic approach to web development allows developers to focus on writing clean and efficient code.
+
+3. **Flexibility and Customization:**
+   - Flask offers a high degree of flexibility and customization, allowing developers to tailor the API according to specific project requirements. It provides a wide range of extensions and libraries to add additional functionality as needed.
+
+4. **RESTful API Development:**
+   - Flask is well-suited for building RESTful APIs, which follow the principles of Representational State Transfer (REST). It provides features such as routing, request handling, and response formatting, making it easy to develop APIs that adhere to RESTful conventions.
+
+5. **Integration with Other Technologies:**
+   - Flask seamlessly integrates with other technologies commonly used in web development, such as SQLAlchemy for database interaction, Jinja2 for template rendering, and WTForms for form handling. This makes it easy to leverage existing tools and libraries within the Flask ecosystem.
+
+6. **Scalability and Deployment:**
+   - Flask applications are highly scalable and can be easily deployed to a variety of hosting platforms, including cloud services like AWS Elastic Beanstalk. Its lightweight nature and minimal resource consumption make it suitable for deploying applications in resource-constrained environments.
+
+Overall, Flask provides a perfect balance of simplicity, flexibility, and scalability, making it an excellent choice for developing APIs like the one described in this project.
+
 
 ## Instructions for Running the API
 
