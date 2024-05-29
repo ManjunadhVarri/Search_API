@@ -86,7 +86,7 @@ Overall, Flask provides a perfect balance of simplicity, flexibility, and scalab
 
 4. **Run the Flask application:**
    ```sh
-   python app.py
+   python application.py
    ```
 
 5. **Access the API:** Open a web browser or use a tool like Postman to send requests to `http://localhost:5000/search` with the appropriate query parameters.
@@ -185,7 +185,7 @@ By using the `.ebextensions` directory and the `python.config` file, you ensure 
    - Select "Python" for the platform.
 
 4. **Prepare Application Code:**
-   - Zip the following files: `app.py`, `data`, `requirements.txt`, `.ebextensions`.
+   - Zip the following files: `application.py`, `data`, `requirements.txt`, `.ebextensions`.
 
 5. **Upload the Code:**
    - In application code, select "Upload your code" and upload the zip file.
